@@ -19,7 +19,7 @@ public class SkyBoxRenderer {
                               ResourceLocation frontTexture, ResourceLocation backTexture, ResourceLocation leftTexture,
                               ResourceLocation rightTexture, ResourceLocation topTexture, ResourceLocation bottomTexture) {
 
-        RenderSystem.enableBlend();
+        RenderSystem.disableBlend();
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         Camera camera = Minecraft.getInstance().gameRenderer.getMainCamera();
         Quaternionf quaternionf = new Quaternionf(camera.rotation()).invert();
@@ -87,7 +87,6 @@ public class SkyBoxRenderer {
         }
 
         RenderSystem.depthMask(true);
-        RenderSystem.disableBlend();
     }
 
     public static void renderEndSky(PoseStack pPoseStack) {
